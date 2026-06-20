@@ -856,72 +856,277 @@
     </section>
 
     <!-- GALLERY PREVIEW -->
-    <section class="py-24 md:py-32 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 md:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1.5 bg-emerald/10 text-emerald font-accent text-xs tracking-wider uppercase rounded-full mb-4">Gallery</span>
-                <h2 class="font-heading font-extrabold text-3xl md:text-5xl text-primary tracking-tight">Moments of <span class="text-emerald">Learning</span></h2>
-            </div>
+<section class="py-24 md:py-32 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-block px-4 py-1.5 bg-emerald/10 text-emerald font-accent text-xs tracking-wider uppercase rounded-full mb-4">Gallery</span>
+            <h2 class="font-heading font-extrabold text-3xl md:text-5xl text-primary tracking-tight">Moments of <span class="text-emerald">Learning</span></h2>
+        </div>
 
-            <div class="masonry">
-                <div data-aos="fade-up" class="masonry-item group cursor-pointer" onclick="openLightbox('gallery\result (5).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (5).png" alt="Gallery" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-center justify-center">
-                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity" data-icon="mdi:magnify-plus"></span>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100" class="masonry-item group cursor-pointer" onclick="openLightbox('/gallery\result (1).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="/gallery\result (1).png" alt="Gallery" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-center justify-center">
-                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity" data-icon="mdi:magnify-plus"></span>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="masonry-item group cursor-pointer" onclick="openLightbox('gallery\result (2).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (2).png" alt="Gallery" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-center justify-center">
-                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity" data-icon="mdi:magnify-plus"></span>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="masonry-item group cursor-pointer" onclick="openLightbox('gallery\result (3).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (3).png" alt="Gallery" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-center justify-center">
-                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity" data-icon="mdi:magnify-plus"></span>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="400" class="masonry-item group cursor-pointer" onclick="openLightbox('gallery\result (4).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (4).png" alt="Gallery" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-center justify-center">
-                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity" data-icon="mdi:magnify-plus"></span>
-                        </div>
-                    </div>
-                </div>
-               <div data-aos="fade-up" data-aos-delay="400" class="masonry-item group cursor-pointer" onclick="openLightbox('gallery\result (6).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (6).png" alt="Gallery" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-center justify-center">
-                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity" data-icon="mdi:magnify-plus"></span>
+        <!-- Scrolling container -->
+        <div id="galleryWrapper" class="overflow-hidden rounded-2xl">
+            <div id="galleryTrack" class="gallery-track flex gap-5 cursor-grab select-none" style="width: max-content;">
+
+                <div class="gallery-card group cursor-pointer flex-shrink-0" onclick="openLightbox('gallery/result (5).png')">
+                    <div class="relative overflow-hidden rounded-2xl" style="width: 400px; height: 600px;">
+                        <img src="gallery/result (5).png" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="mdi:magnify-plus"></span>
                         </div>
                     </div>
                 </div>
 
-            </div>
+                <div class="gallery-card group cursor-pointer flex-shrink-0" onclick="openLightbox('gallery/result (1).png')">
+                    <div class="relative overflow-hidden rounded-2xl" style="width: 400px; height: 600px;">
+                        <img src="gallery/result (1).png" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="mdi:magnify-plus"></span>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a href="#" onclick="navigateTo('gallery')" class="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-white font-heading font-bold text-sm rounded-full hover:bg-forest transition-all hover:shadow-xl">
-                    View Full Gallery <span class="iconify" data-icon="mdi:arrow-right"></span>
-                </a>
+                <div class="gallery-card group cursor-pointer flex-shrink-0" onclick="openLightbox('gallery/result (2).png')">
+                    <div class="relative overflow-hidden rounded-2xl" style="width: 400px; height: 600px;">
+                        <img src="gallery/result (2).png" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="mdi:magnify-plus"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card group cursor-pointer flex-shrink-0" onclick="openLightbox('gallery/result (3).png')">
+                    <div class="relative overflow-hidden rounded-2xl" style="width: 400px; height: 600px;">
+                        <img src="gallery/result (3).png" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="mdi:magnify-plus"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card group cursor-pointer flex-shrink-0" onclick="openLightbox('gallery/result (4).png')">
+                    <div class="relative overflow-hidden rounded-2xl" style="width: 400px; height: 600px;">
+                        <img src="gallery/result (4).png" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="mdi:magnify-plus"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card group cursor-pointer flex-shrink-0" onclick="openLightbox('gallery/result (6).png')">
+                    <div class="relative overflow-hidden rounded-2xl" style="width: 400px; height: 600px;">
+                        <img src="gallery/result (6).png" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="mdi:magnify-plus"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Duplicates for seamless loop -->
+                <div class="gallery-card group cursor-pointer flex-shrink-0" onclick="openLightbox('gallery/result (5).png')">
+                    <div class="relative overflow-hidden rounded-2xl" style="width: 400px; height: 600px;">
+                        <img src="gallery/result (5).png" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="mdi:magnify-plus"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card group cursor-pointer flex-shrink-0" onclick="openLightbox('gallery/result (1).png')">
+                    <div class="relative overflow-hidden rounded-2xl" style="width: 400px; height: 600px;">
+                        <img src="gallery/result (1).png" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="mdi:magnify-plus"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card group cursor-pointer flex-shrink-0" onclick="openLightbox('gallery/result (2).png')">
+                    <div class="relative overflow-hidden rounded-2xl" style="width: 400px; height: 600px;">
+                        <img src="gallery/result (2).png" alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-300 flex items-center justify-center">
+                            <span class="iconify text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" data-icon="mdi:magnify-plus"></span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </section>
+
+        <!-- Fade edges -->
+        <div class="absolute top-[42%] left-0 w-16 md:w-24 h-[600px] -translate-y-1/2 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-10"></div>
+        <div class="absolute top-[42%] right-0 w-16 md:w-24 h-[600px] -translate-y-1/2 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-10"></div>
+
+        <!-- Manual scroll buttons -->
+        <div class="flex items-center justify-center gap-4 mt-8">
+            <button id="scrollLeft" class="w-12 h-12 rounded-full border-2 border-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-pointer active:scale-90">
+                <span class="iconify text-xl" data-icon="mdi:chevron-left"></span>
+            </button>
+            <button id="scrollRight" class="w-12 h-12 rounded-full border-2 border-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-pointer active:scale-90">
+                <span class="iconify text-xl" data-icon="mdi:chevron-right"></span>
+            </button>
+        </div>
+
+        <div class="text-center mt-10" data-aos="fade-up">
+            <a href="#" onclick="navigateTo('gallery')" class="inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-white font-heading font-bold text-sm rounded-full hover:bg-forest transition-all hover:shadow-xl">
+                View Full Gallery <span class="iconify" data-icon="mdi:arrow-right"></span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+(function() {
+    const track = document.getElementById('galleryTrack');
+    const wrapper = document.getElementById('galleryWrapper');
+    const scrollLeftBtn = document.getElementById('scrollLeft');
+    const scrollRightBtn = document.getElementById('scrollRight');
+    const cards = track.querySelectorAll('.gallery-card');
+
+    let isAutoScrolling = true;
+    let scrollPos = 0;
+    let animationId = null;
+    let isDragging = false;
+    let startX = 0;
+    let dragStartPos = 0;
+    let isHovering = false;
+    const speed = 1.9;
+    const cardWidth = 420; // 400px card + 20px gap
+
+    function getOriginalWidth() {
+        const halfCards = Math.floor(cards.length / 2);
+        return halfCards * cardWidth;
+    }
+
+    function autoScroll() {
+        if (!isAutoScrolling) return;
+
+        scrollPos += speed;
+        const originalWidth = getOriginalWidth();
+
+        if (scrollPos >= originalWidth) {
+            scrollPos -= originalWidth;
+        }
+
+        track.style.transform = `translateX(-${scrollPos}px)`;
+        animationId = requestAnimationFrame(autoScroll);
+    }
+
+    function startAutoScroll() {
+        if (isAutoScrolling) return;
+        isAutoScrolling = true;
+        animationId = requestAnimationFrame(autoScroll);
+    }
+
+    function stopAutoScroll() {
+        isAutoScrolling = false;
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+    }
+
+    // Intersection observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && isAutoScrolling && !isHovering) {
+                if (!animationId) animationId = requestAnimationFrame(autoScroll);
+            } else {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(wrapper);
+
+    // Mouse enter/leave on wrapper — controls auto-scroll
+    wrapper.addEventListener('mouseenter', () => {
+        isHovering = true;
+        stopAutoScroll();
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+        isHovering = false;
+        if (!isDragging) {
+            startAutoScroll();
+        }
+    });
+
+    // Manual scroll buttons
+    scrollLeftBtn.addEventListener('click', () => {
+        stopAutoScroll();
+        isHovering = true; // keep it stopped while using buttons
+        scrollPos -= cardWidth;
+        if (scrollPos < 0) scrollPos += getOriginalWidth();
+        track.style.transform = `translateX(-${scrollPos}px)`;
+    });
+
+    scrollRightBtn.addEventListener('click', () => {
+        stopAutoScroll();
+        isHovering = true;
+        scrollPos += cardWidth;
+        const originalWidth = getOriginalWidth();
+        if (scrollPos >= originalWidth) scrollPos -= originalWidth;
+        track.style.transform = `translateX(-${scrollPos}px)`;
+    });
+
+    // Drag scrolling
+    track.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        track.classList.add('cursor-grabbing');
+        track.classList.remove('cursor-grab');
+        startX = e.clientX;
+        dragStartPos = scrollPos;
+        stopAutoScroll();
+        e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        scrollPos = dragStartPos - dx;
+        track.style.transform = `translateX(-${scrollPos}px)`;
+    });
+
+    document.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('cursor-grabbing');
+        track.classList.add('cursor-grab');
+    });
+
+    // Touch support
+    let touchStartX = 0;
+    let touchStartPos = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartPos = scrollPos;
+        stopAutoScroll();
+    }, { passive: true });
+
+    track.addEventListener('touchmove', (e) => {
+        const dx = e.touches[0].clientX - touchStartX;
+        scrollPos = touchStartPos - dx;
+        track.style.transform = `translateX(-${scrollPos}px)`;
+    }, { passive: true });
+
+    // Start
+    animationId = requestAnimationFrame(autoScroll);
+})();
+</script>
+
+<style>
+    .gallery-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.2);
+    }
+</style>
 
     <!-- CONTACT CTA (Links to Contact Page) -->
 <section class="py-24 md:py-32 relative overflow-hidden animated-gradient">
