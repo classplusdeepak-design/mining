@@ -272,9 +272,9 @@
 <div class="mobile-menu fixed inset-0 z-[200] bg-primary" id="mobileMenu">
     <div class="flex items-center justify-between p-6">
         <div class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-gold rounded-lg flex items-center justify-center">
-                <span class="iconify text-primary text-xl" data-icon="mdi:pickaxe"></span>
-            </div>
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden">
+        <img src="logo.jpeg" alt="Logo" class="w-10 h-10 object-contain">
+    </div>
             <span class="font-heading font-extrabold text-lg text-white">Mining Tutorial 2.1</span>
         </div>
         <button onclick="toggleMobileMenu()" class="text-white text-3xl"><span class="iconify" data-icon="mdi:close"></span></button>
@@ -286,11 +286,11 @@
     <a href="#" onclick="navigateTo('gallery');toggleMobileMenu()" class="text-white font-heading font-bold text-2xl hover:text-gold transition-colors">Gallery</a>
     <a href="#" onclick="navigateTo('contact');toggleMobileMenu()" class="text-white font-heading font-bold text-2xl hover:text-gold transition-colors">Contact</a>
     <div class="mt-8 flex flex-col gap-3 w-64">
-        <a href="#" class="flex items-center justify-center gap-2 px-6 py-3 border border-white/20 rounded-full text-white font-accent hover:border-gold hover:text-gold transition-all">
+        <a href="https://play.google.com/store/apps/details?id=co.amy.ggdgv" class="flex items-center justify-center gap-2 px-6 py-3 border border-white/20 rounded-full text-white font-accent hover:border-gold hover:text-gold transition-all">
             <span class="iconify text-lg" data-icon="mdi:google-play"></span> Download App
         </a>
-        <a href="#" onclick="navigateTo('contact');toggleMobileMenu()" class="flex items-center justify-center px-6 py-3 bg-gold text-primary font-heading font-bold rounded-full hover:bg-yellow-500 transition-all">
-            Join Now
+        <a href="https://web.classplusapp.com/login" onclick="navigateTo('contact');toggleMobileMenu()" class="flex items-center justify-center px-6 py-3 bg-gold text-primary font-heading font-bold rounded-full hover:bg-yellow-500 transition-all">
+            Login
         </a>
     </div>
 </nav>
