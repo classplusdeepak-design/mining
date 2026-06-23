@@ -202,7 +202,209 @@
         height: 180px;
     }
 }
+/* ===========================
+   3D ROTATING GALLERY
+=========================== */
 
+.gallery-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:80px 20px;
+    overflow:hidden;
+}
+
+.gallery-container{
+    position:relative;
+    width:750px;
+    height:510px;
+    perspective:1800px;
+}
+
+.gallery{
+    width:100%;
+    height:100%;
+    position:absolute;
+    transform-style:preserve-3d;
+    animation:rotateGallery 25s linear infinite;
+}
+
+.gallery:hover{
+    animation-play-state:paused;
+}
+
+.gallery span{
+    position:absolute;
+    width:260px;
+    height:340px;
+
+    left:245px;
+    top:40px;
+
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+
+    background:#ffffff;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.25);
+
+    transition:all .4s ease;
+}
+
+/* Stop rotation when mouse enters gallery */
+.gallery:hover{
+    animation-play-state: paused;
+}
+
+/* Individual Card */
+.gallery span{
+    position:absolute;
+    width:260px;
+    height:340px;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+    background:#fff;
+    transition:all .4s ease;
+    transform-style:preserve-3d;
+}
+
+/* Bring hovered image to front */
+.gallery span:hover{
+    z-index:9999;
+}
+
+/* Zoom image */
+.gallery span img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#fff;
+    padding:8px;
+    transition:transform .4s ease;
+}
+
+.gallery span:hover img{
+    transform:scale(1.25);
+}
+
+.gallery span:hover{
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45),
+        0 0 30px rgba(255,255,255,.25);
+}
+
+
+.gallery span img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#fff;
+    padding:8px;
+    transition:.4s;
+}
+
+.gallery span:hover img{
+    transform:scale(1.08);
+}
+
+/* Circular Positioning */
+
+.gallery span:nth-child(1){
+    transform:rotateY(0deg) translateZ(450px);
+}
+
+.gallery span:nth-child(2){
+    transform:rotateY(45deg) translateZ(450px);
+}
+
+.gallery span:nth-child(3){
+    transform:rotateY(90deg) translateZ(450px);
+}
+
+.gallery span:nth-child(4){
+    transform:rotateY(135deg) translateZ(450px);
+}
+
+.gallery span:nth-child(5){
+    transform:rotateY(180deg) translateZ(450px);
+}
+
+.gallery span:nth-child(6){
+    transform:rotateY(225deg) translateZ(450px);
+}
+
+.gallery span:nth-child(7){
+    transform:rotateY(270deg) translateZ(450px);
+}
+
+.gallery span:nth-child(8){
+    transform:rotateY(315deg) translateZ(450px);
+}
+
+@keyframes rotateGallery{
+    from{
+        transform:rotateY(0deg);
+    }
+    to{
+        transform:rotateY(360deg);
+    }
+}
+
+/* Tablet */
+
+@media (max-width:992px){
+
+.gallery-container{
+    width:550px;
+    height:500px;
+}
+
+.gallery span{
+    width:180px;
+    height:240px;
+    left:185px;
+    top:120px;
+}
+
+.gallery span:nth-child(1){transform:rotateY(0deg) translateZ(300px);}
+.gallery span:nth-child(2){transform:rotateY(45deg) translateZ(300px);}
+.gallery span:nth-child(3){transform:rotateY(90deg) translateZ(300px);}
+.gallery span:nth-child(4){transform:rotateY(135deg) translateZ(300px);}
+.gallery span:nth-child(5){transform:rotateY(180deg) translateZ(300px);}
+.gallery span:nth-child(6){transform:rotateY(225deg) translateZ(300px);}
+.gallery span:nth-child(7){transform:rotateY(270deg) translateZ(300px);}
+.gallery span:nth-child(8){transform:rotateY(315deg) translateZ(300px);}
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+.gallery-container{
+    width:350px;
+    height:350px;
+}
+
+.gallery span{
+    width:130px;
+    height:180px;
+
+    left:110px;
+    top:85px;
+}
+
+.gallery span:nth-child(1){transform:rotateY(0deg) translateZ(220px);}
+.gallery span:nth-child(2){transform:rotateY(45deg) translateZ(220px);}
+.gallery span:nth-child(3){transform:rotateY(90deg) translateZ(220px);}
+.gallery span:nth-child(4){transform:rotateY(135deg) translateZ(220px);}
+.gallery span:nth-child(5){transform:rotateY(180deg) translateZ(220px);}
+.gallery span:nth-child(6){transform:rotateY(225deg) translateZ(220px);}
+.gallery span:nth-child(7){transform:rotateY(270deg) translateZ(220px);}
+.gallery span:nth-child(8){transform:rotateY(315deg) translateZ(220px);}
+}
     </style>
 </head>
 <body>
@@ -1458,82 +1660,51 @@ setInterval(()=>{
     </section>
 
     <!-- Photo Gallery -->
-    <section class="py-24 md:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 md:px-8">
-            <!-- Filters -->
-            <div class="flex flex-wrap items-center justify-center gap-3 mb-12" data-aos="fade-up">
-                <button onclick="filterGallery('all')" class="gallery-filter active px-5 py-2 rounded-full font-accent text-sm transition-all bg-primary text-white" data-filter="all">All</button>
-                <button onclick="filterGallery('Student')" class="gallery-filter px-5 py-2 rounded-full font-accent text-sm transition-all bg-light text-gray-600 hover:bg-primary hover:text-white" data-filter="student">Student</button>
+    <section class="py-5 md:py-5 bg-white">
+        <div class="max-w-8xl mx-auto px-1 md:px-1">
+            
                 
-            <!-- Masonry Grid -->
-            <div id="galleryGrid" class="masonry">
-                <div class="gallery-item group cursor-pointer" data-category="founder" onclick="openLightbox('gallery\result (1).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (1).png" alt="student" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-end p-4">
-                            <p class="text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Student Success</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item group cursor-pointer" data-category="classes" onclick="openLightbox('gallery\result (2).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (2).png" alt="student" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-end p-4">
-                            <p class="text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Student Success</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item group cursor-pointer" data-category="achievements" onclick="openLightbox('gallery\result (3).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (3).png" alt="student" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-end p-4">
-                            <p class="text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Student Success</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item group cursor-pointer" data-category="events" onclick="openLightbox('gallery\result (4).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (4).png" alt="student" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-end p-4">
-                            <p class="text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Student Success</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item group cursor-pointer" data-category="students" onclick="openLightbox('gallery\result (5).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (5).png" alt="student" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-end p-4">
-                            <p class="text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Student Success</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item group cursor-pointer" data-category="founder" onclick="openLightbox('gallery\result (6).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (6).png" alt="student" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-end p-4">
-                            <p class="text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Student Success</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item group cursor-pointer" data-category="classes" onclick="openLightbox('gallery\result (7).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (7).png" alt="student" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-end p-4">
-                            <p class="text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Student Success</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="gallery-item group cursor-pointer" data-category="events" onclick="openLightbox('gallery\result (8).png')">
-                    <div class="relative overflow-hidden rounded-2xl">
-                        <img src="gallery\result (8).png" alt="student" class="w-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all flex items-end p-4">
-                            <p class="text-white font-heading font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity">Student Success</p>
-                        </div>
-                    </div>
-                </div>
-                            </div>
+            <!-- Rotating Circular Gallery -->
+<div class="gallery-section">
+    <div class="gallery-container">
+        <div class="gallery">
+
+            <span onclick="openLightbox('gallery/result (1).png')">
+                <img src="gallery/result (1).png" alt="Student Success">
+            </span>
+
+            <span onclick="openLightbox('gallery/result (2).png')">
+                <img src="gallery/result (2).png" alt="Student Success">
+            </span>
+
+            <span onclick="openLightbox('gallery/result (3).png')">
+                <img src="gallery/result (3).png" alt="Student Success">
+            </span>
+
+            <span onclick="openLightbox('gallery/result (4).png')">
+                <img src="gallery/result (4).png" alt="Student Success">
+            </span>
+
+            <span onclick="openLightbox('gallery/result (5).png')">
+                <img src="gallery/result (5).png" alt="Student Success">
+            </span>
+
+            <span onclick="openLightbox('gallery/result (6).png')">
+                <img src="gallery/result (6).png" alt="Student Success">
+            </span>
+
+            <span onclick="openLightbox('gallery/result (7).png')">
+                <img src="gallery/result (7).png" alt="Student Success">
+            </span>
+
+            <span onclick="openLightbox('gallery/result (8).png')">
+                <img src="gallery/result (8).png" alt="Student Success">
+            </span>
+
         </div>
-    </section>
+    </div>
+</div>
+
 
     <!-- Video Gallery -->
     <section class="py-24 md:py-32 bg-light">
