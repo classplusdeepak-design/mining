@@ -391,6 +391,180 @@
 
    
 </section>
+<!-- Gallery Section -->
+
+    <div class="coverflow-gallery">
+
+    <div class="coverflow-item active">
+        <img src="gallery/result (1).png" alt="">
+    </div>
+
+    <div class="coverflow-item">
+        <img src="gallery/result (2).png" alt="">
+    </div>
+
+    <div class="coverflow-item">
+        <img src="gallery/result (3).png" alt="">
+    </div>
+
+    <div class="coverflow-item">
+        <img src="gallery/result (4).png" alt="">
+    </div>
+
+    <div class="coverflow-item">
+        <img src="gallery/result (5).png" alt="">
+    </div>
+
+    <div class="coverflow-item">
+        <img src="gallery/result (6).png" alt="">
+    </div>
+    
+    <div class="coverflow-item">
+        <img src="gallery/result (7).png" alt="">
+    </div>
+    
+    <div class="coverflow-item">
+        <img src="gallery/result (8).png" alt="">
+    </div>
+
+</div>
+
+<style>
+
+.coverflow-gallery{
+    position:relative;
+    width:100%;
+    height:700px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    perspective:1500px;
+}
+
+.coverflow-item{
+    position:absolute;
+    width:320px;
+    height:500px;
+    transition:all 1s ease;
+    border-radius:24px;
+    overflow:hidden;
+    opacity:.5;
+    transform:scale(.6);
+}
+
+.coverflow-item img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#fff;
+}
+
+.coverflow-item.active{
+    opacity:1;
+    transform:translateX(0) scale(1.15);
+    z-index:10;
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.coverflow-item.left1{
+    transform:translateX(-260px) scale(.85);
+    z-index:8;
+}
+
+.coverflow-item.left2{
+    transform:translateX(-520px) scale(.65);
+    opacity:.4;
+}
+
+.coverflow-item.left3{
+    transform:translateX(-780px) scale(.5);
+    opacity:.2;
+}
+
+.coverflow-item.right1{
+    transform:translateX(260px) scale(.85);
+    z-index:8;
+}
+
+.coverflow-item.right2{
+    transform:translateX(520px) scale(.65);
+    opacity:.4;
+}
+
+.coverflow-item.right3{
+    transform:translateX(780px) scale(.5);
+    opacity:.2;
+}
+
+@media(max-width:768px){
+
+.coverflow-gallery{
+    height:500px;
+}
+
+.coverflow-item{
+    width:200px;
+    height:300px;
+}
+
+.coverflow-item.left1{
+    transform:translateX(-140px) scale(.75);
+}
+
+.coverflow-item.right1{
+    transform:translateX(140px) scale(.75);
+}
+
+.coverflow-item.left2,
+.coverflow-item.right2,
+.coverflow-item.left3,
+.coverflow-item.right3{
+    display:none;
+}
+
+}
+
+</style>
+<script>
+
+const items = document.querySelectorAll('.coverflow-item');
+
+let current = 0;
+
+function updateCarousel(){
+
+    items.forEach(item=>{
+        item.className='coverflow-item';
+    });
+
+    const total = items.length;
+
+    items[current].classList.add('active');
+
+    items[(current-1+total)%total].classList.add('left1');
+    items[(current-2+total)%total].classList.add('left2');
+    items[(current-3+total)%total].classList.add('left3');
+
+    items[(current+1)%total].classList.add('right1');
+    items[(current+2)%total].classList.add('right2');
+    items[(current+3)%total].classList.add('right3');
+
+}
+
+updateCarousel();
+
+setInterval(()=>{
+    current++;
+    if(current>=items.length){
+        current=0;
+    }
+    updateCarousel();
+},2500);
+
+</script>
+</section>
+</div>
 
     <!-- WHY CHOOSE US -->
    <section class="py-24 md:py-32 bg-white relative overflow-hidden" style="margin-top: -80px; padding-top: 7rem; position: relative; z-index: 4;">
@@ -856,181 +1030,7 @@
         </div>
     </section>
 
- <!-- Gallery Section -->
-
-    <div class="coverflow-gallery">
-
-    <div class="coverflow-item active">
-        <img src="gallery/result (1).png" alt="">
-    </div>
-
-    <div class="coverflow-item">
-        <img src="gallery/result (2).png" alt="">
-    </div>
-
-    <div class="coverflow-item">
-        <img src="gallery/result (3).png" alt="">
-    </div>
-
-    <div class="coverflow-item">
-        <img src="gallery/result (4).png" alt="">
-    </div>
-
-    <div class="coverflow-item">
-        <img src="gallery/result (5).png" alt="">
-    </div>
-
-    <div class="coverflow-item">
-        <img src="gallery/result (6).png" alt="">
-    </div>
-    
-    <div class="coverflow-item">
-        <img src="gallery/result (7).png" alt="">
-    </div>
-    
-    <div class="coverflow-item">
-        <img src="gallery/result (8).png" alt="">
-    </div>
-
-</div>
-
-<style>
-
-.coverflow-gallery{
-    position:relative;
-    width:100%;
-    height:700px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    perspective:1500px;
-}
-
-.coverflow-item{
-    position:absolute;
-    width:320px;
-    height:500px;
-    transition:all 1s ease;
-    border-radius:24px;
-    overflow:hidden;
-    opacity:.5;
-    transform:scale(.6);
-}
-
-.coverflow-item img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    background:#fff;
-}
-
-.coverflow-item.active{
-    opacity:1;
-    transform:translateX(0) scale(1.15);
-    z-index:10;
-    box-shadow:0 30px 80px rgba(0,0,0,.35);
-}
-
-.coverflow-item.left1{
-    transform:translateX(-260px) scale(.85);
-    z-index:8;
-}
-
-.coverflow-item.left2{
-    transform:translateX(-520px) scale(.65);
-    opacity:.4;
-}
-
-.coverflow-item.left3{
-    transform:translateX(-780px) scale(.5);
-    opacity:.2;
-}
-
-.coverflow-item.right1{
-    transform:translateX(260px) scale(.85);
-    z-index:8;
-}
-
-.coverflow-item.right2{
-    transform:translateX(520px) scale(.65);
-    opacity:.4;
-}
-
-.coverflow-item.right3{
-    transform:translateX(780px) scale(.5);
-    opacity:.2;
-}
-
-@media(max-width:768px){
-
-.coverflow-gallery{
-    height:500px;
-}
-
-.coverflow-item{
-    width:200px;
-    height:300px;
-}
-
-.coverflow-item.left1{
-    transform:translateX(-140px) scale(.75);
-}
-
-.coverflow-item.right1{
-    transform:translateX(140px) scale(.75);
-}
-
-.coverflow-item.left2,
-.coverflow-item.right2,
-.coverflow-item.left3,
-.coverflow-item.right3{
-    display:none;
-}
-
-}
-
-</style>
-<script>
-
-const items = document.querySelectorAll('.coverflow-item');
-
-let current = 0;
-
-function updateCarousel(){
-
-    items.forEach(item=>{
-        item.className='coverflow-item';
-    });
-
-    const total = items.length;
-
-    items[current].classList.add('active');
-
-    items[(current-1+total)%total].classList.add('left1');
-    items[(current-2+total)%total].classList.add('left2');
-    items[(current-3+total)%total].classList.add('left3');
-
-    items[(current+1)%total].classList.add('right1');
-    items[(current+2)%total].classList.add('right2');
-    items[(current+3)%total].classList.add('right3');
-
-}
-
-updateCarousel();
-
-setInterval(()=>{
-    current++;
-    if(current>=items.length){
-        current=0;
-    }
-    updateCarousel();
-},2500);
-
-</script>
-</section>
-</div>
-
+ 
 
 <!-- ============================================ -->
 <!-- PAGE: ABOUT US -->
