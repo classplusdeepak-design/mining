@@ -406,6 +406,172 @@
 .gallery span:nth-child(8){transform:rotateY(315deg) translateZ(220px);}
 }
 
+/* ==========================
+   VIDEO LIGHTBOX GALLERY
+========================== */
+
+.video-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    cursor:pointer;
+    background:#fff;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    transition:.4s;
+}
+
+.video-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 30px 60px rgba(0,0,0,.25);
+}
+
+.video-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.video-card:hover img{
+    transform:scale(1.1);
+}
+
+.video-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.4s;
+}
+
+.video-card:hover .video-overlay{
+    background:rgba(0,0,0,.55);
+}
+
+.play-btn{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:#fbbf24;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.4s;
+}
+
+.video-card:hover .play-btn{
+    transform:scale(1.15);
+}
+
+.video-content{
+    padding:20px;
+}
+
+.video-content h3{
+    font-size:18px;
+    font-weight:700;
+    color:#0f172a;
+    margin-bottom:5px;
+}
+
+.video-content p{
+    font-size:14px;
+    color:#64748b;
+}
+
+/* LIGHTBOX */
+
+.video-lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.video-lightbox.active{
+    display:flex;
+}
+
+.video-wrapper{
+    width:90%;
+    max-width:1000px;
+    aspect-ratio:16/9;
+}
+
+.video-wrapper iframe{
+    width:100%;
+    height:100%;
+    border:none;
+    border-radius:20px;
+}
+
+.close-video{
+    position:absolute;
+    top:20px;
+    right:30px;
+    color:white;
+    font-size:45px;
+    cursor:pointer;
+    z-index:999999;
+}
+
+@media(max-width:768px){
+
+    .video-card img{
+        height:220px;
+    }
+
+    .play-btn{
+        width:60px;
+        height:60px;
+    }
+}
+
+.video-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    cursor:pointer;
+    background:#fff;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+    transition:.4s;
+}
+
+.video-card:hover{
+    transform:translateY(-8px);
+}
+
+.preview-video{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    display:block;
+}
+
+.video-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transition:.4s;
+}
+
+.video-card:hover .video-overlay{
+    opacity:0;
+}
+
+.video-content{
+    padding:20px;
+    background:#fff;
+}
+
 </style>
 </head>
 <body>
@@ -1708,54 +1874,132 @@ setInterval(()=>{
 </section>
 
 
-    <!-- Video Gallery -->
-    <section class="py-24 md:py-32 bg-light">
-        <div class="max-w-7xl mx-auto px-6 md:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="inline-block px-4 py-1.5 bg-gold/10 text-gold font-accent text-xs tracking-wider uppercase rounded-full mb-4">Videos</span>
-                <h2 class="font-heading font-extrabold text-3xl md:text-5xl text-primary tracking-tight">Video <span class="text-emerald">Gallery</span></h2>
+    <!-- VIDEO LIGHTBOX GALLERY -->
+<section class="py-24 md:py-32 bg-light">
+
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+        <div class="text-center mb-16" data-aos="fade-up">
+            <span class="inline-block px-4 py-1.5 bg-gold/10 text-gold font-accent text-xs tracking-wider uppercase rounded-full mb-4">
+                Videos
+            </span>
+
+            <h2 class="font-heading font-extrabold text-3xl md:text-5xl text-primary tracking-tight">
+                Video <span class="text-emerald">Gallery</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- VIDEO 1 -->
+            <div class="video-card">
+
+            <video
+            class="preview-video"
+            muted
+            loop
+            playsinline
+            preload="metadata">
+
+            <source src="videos/video1.mp4" type="video/mp4">
+
+            </video>
+
+            <div class="video-overlay">
+            <div class="play-btn">
+            <span class="iconify text-3xl text-primary"
+                data-icon="mdi:play">
+            </span>
+            </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div data-aos="fade-up" data-aos-delay="100" class="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
-                    <img src="https://picsum.photos/seed/vid1/500/300.jpg" alt="Video" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-primary/40 flex items-center justify-center group-hover:bg-primary/60 transition-all">
-                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
-                            <span class="iconify text-primary text-3xl ml-1" data-icon="mdi:play"></span>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <p class="text-white font-heading font-bold text-sm">FMC Exam Strategy Session</p>
-                        <p class="text-white/60 font-accent text-xs">12K views</p>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
-                    <img src="https://picsum.photos/seed/vid2/500/300.jpg" alt="Video" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-primary/40 flex items-center justify-center group-hover:bg-primary/60 transition-all">
-                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
-                            <span class="iconify text-primary text-3xl ml-1" data-icon="mdi:play"></span>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <p class="text-white font-heading font-bold text-sm">Mining Laws Deep Dive</p>
-                        <p class="text-white/60 font-accent text-xs">8.5K views</p>
-                    </div>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300" class="group relative rounded-2xl overflow-hidden shadow-lg cursor-pointer">
-                    <img src="https://picsum.photos/seed/vid3/500/300.jpg" alt="Video" class="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-primary/40 flex items-center justify-center group-hover:bg-primary/60 transition-all">
-                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
-                            <span class="iconify text-primary text-3xl ml-1" data-icon="mdi:play"></span>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4">
-                        <p class="text-white font-heading font-bold text-sm">Success Story: From Student to PSU</p>
-                        <p class="text-white/60 font-accent text-xs">15K views</p>
-                    </div>
-                </div>
+            <div class="video-content">
+            <h3>FMC Exam Strategy Session</h3>
+            <p>12K Views</p>
             </div>
+
+            </div>
+
+            <!-- VIDEO 2 -->
+            <div class="video-card">
+
+            <video
+            class="preview-video"
+            muted
+            loop
+            playsinline
+            preload="metadata">
+
+            <source src="videos/video1.mp4" type="video/mp4">
+
+            </video>
+
+            <div class="video-overlay">
+            <div class="play-btn">
+            <span class="iconify text-3xl text-primary"
+                data-icon="mdi:play">
+            </span>
+            </div>
+            </div>
+
+            <div class="video-content">
+            <h3>FMC Exam Strategy Session</h3>
+            <p>12K Views</p>
+            </div>
+
+            </div>
+
+            <!-- VIDEO 3 -->
+            <div class="video-card">
+
+            <video
+            class="preview-video"
+            muted
+            loop
+            playsinline
+            preload="metadata">
+
+            <source src="videos/video1.mp4" type="video/mp4">
+
+            </video>
+
+            <div class="video-overlay">
+            <div class="play-btn">
+            <span class="iconify text-3xl text-primary"
+                data-icon="mdi:play">
+            </span>
+            </div>
+            </div>
+
+            <div class="video-content">
+            <h3>FMC Exam Strategy Session</h3>
+            <p>12K Views</p>
+            </div>
+
+            </div>
+
         </div>
-    </section>
+
+    </div>
+
+</section>
+
+<!-- VIDEO LIGHTBOX -->
+<div id="videoLightbox" class="video-lightbox">
+
+    <span class="close-video" onclick="closeVideo()">
+        &times;
+    </span>
+
+    <div class="video-wrapper">
+        <iframe
+            id="videoFrame"
+            src=""
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</div>
 </div>
 
     
@@ -2722,7 +2966,62 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+<script>
 
+function openVideo(videoUrl){
+
+    document
+        .getElementById('videoLightbox')
+        .classList.add('active');
+
+    document
+        .getElementById('videoFrame')
+        .src = videoUrl + '?autoplay=1';
+}
+
+function closeVideo(){
+
+    document
+        .getElementById('videoLightbox')
+        .classList.remove('active');
+
+    document
+        .getElementById('videoFrame')
+        .src = '';
+}
+
+/* Close on outside click */
+
+document
+.getElementById('videoLightbox')
+.addEventListener('click',function(e){
+
+    if(e.target === this){
+        closeVideo();
+    }
+
+});
+
+</script>
+
+<script>
+
+document.querySelectorAll('.video-card').forEach(card => {
+
+    const video = card.querySelector('video');
+
+    card.addEventListener('mouseenter', () => {
+        video.play();
+    });
+
+    card.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+    });
+
+});
+
+</script>
 
 </body>
 </html>
