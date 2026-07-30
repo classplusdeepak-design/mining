@@ -2696,20 +2696,65 @@ function playVideo(box, videoId){
     </section>
 </div>
 <!-- DEMO VIDEO MODAL -->
-<div id="demoVideoModal" class="fixed inset-0 z-[300] bg-black/90 hidden items-center justify-center" onclick="closeDemoVideo(event)">
+<!-- Demo Video Modal -->
+<div id="demoVideoModal"
+     class="fixed inset-0 z-[300] bg-black/90 hidden items-center justify-center"
+     onclick="closeDemoVideo(event)">
+
     <div class="relative w-full max-w-4xl mx-4">
-        <button onclick="closeDemoVideo(event)" class="absolute -top-12 right-0 text-white text-3xl hover:text-gold transition-colors">
+
+        <!-- Close Button -->
+        <button onclick="closeDemoVideo(event)"
+            class="absolute -top-12 right-0 text-white text-3xl hover:text-gold transition-colors">
             <span class="iconify" data-icon="mdi:close"></span>
         </button>
-        <div class="relative rounded-2xl overflow-hidden bg-black shadow-2xl" style="padding-bottom: 56.25%;">
-            <!-- Replace src with your demo video URL -->
-            <video id="demoVideoPlayer" class="absolute inset-0 w-full h-full object-cover" controls playsinline>
-                <source src="https://www.youtube.com/embed/eJiIWekJ0oE" type="video/mp4">
-            </video>
+
+        <!-- Video Container -->
+        <div class="relative rounded-2xl overflow-hidden bg-black shadow-2xl"
+             style="padding-bottom:56.25%;">
+
+            <iframe
+                id="demoVideoPlayer"
+                class="absolute top-0 left-0 w-full h-full"
+                src=""
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+
         </div>
+
     </div>
 </div>
+<script>
+function openDemoVideo() {
+    const modal = document.getElementById("demoVideoModal");
+    const player = document.getElementById("demoVideoPlayer");
 
+    player.src = "https://www.youtube.com/embed/eJiIWekJ0oE?autoplay=1&rel=0";
+
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+}
+
+function closeDemoVideo(event) {
+
+    if (
+        event.target.id === "demoVideoModal" ||
+        event.target.closest("button")
+    ) {
+
+        const modal = document.getElementById("demoVideoModal");
+        const player = document.getElementById("demoVideoPlayer");
+
+        player.src = ""; // Stop video
+
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+    }
+}
+</script>
 
 <!-- ============================================ -->
 <!-- FOOTER -->
